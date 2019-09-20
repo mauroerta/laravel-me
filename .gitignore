@@ -1,0 +1,14 @@
+node_modules
+test
+build
+.idea/*
+
+coverage
+.nyc_output
+*.log
+
+.DS_STORE
+
+yarn.lock
+package.backup.json
+package-lock.json
