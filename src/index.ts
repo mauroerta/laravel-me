@@ -1,27 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { ModelData, ModelFiles, ModelOptions, ModelRequestMethod } from './data';
 import { csrf, objectToFormData, sanitizeUrl } from './helpers';
-
-export interface ModelOptions {
-  resourceName: string;
-  resourceKeyName: string;
-  routeKeyName: string;
-  searchBaseUrl: string;
-  apiBaseUrl: string;
-  apiUrl: string;
-  url: string;
-}
-
-export interface ModelData {
-  _method?: RequestMethod;
-  _token?: string;
-  [key:string]: any;
-}
-
-export interface ModelFiles {
-  [key:string]: File;
-}
-
-export type RequestMethod = 'get'|'post'|'put'|'delete'|'fetch';
 
 export default class Model implements ModelData {
   _options: Partial<ModelOptions> = {
@@ -34,7 +13,7 @@ export default class Model implements ModelData {
     url: ''
   };
   _files: ModelFiles;
-  _method: RequestMethod = 'get';
+  _method: ModelRequestMethod = 'get';
   _token = null;
   _hideFields: string[] = ['_token', '_options', '_method', '_files', '_hideFields'];
 
