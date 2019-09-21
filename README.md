@@ -2,8 +2,6 @@
 
 # Laravel-Me
 
-## <img src="https://www.vlkstudio.com/images/vlkLogo.png" alt="VLK logo" style="zoom:25%;" />❤️  ![Laravel Logo](https://laravel.com/img/logomark.min.svg) ![Laravel text](https://laravel.com/img/logotype.min.svg)
-
 A Javascript (`Typescript`) package for make requests to laravel as simple as possible!
 
 ## ⚙️ Installation
