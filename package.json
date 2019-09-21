@@ -1,6 +1,6 @@
 {
   "name": "laravel-me",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "CRUD for laravel",
   "main": "build/main/index.js",
   "module": "src/index.ts",
