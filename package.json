@@ -1,6 +1,6 @@
 {
   "name": "laravel-me",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "CRUD for laravel",
   "main": "build/main/index.js",
   "module": "src/index.ts",
@@ -16,17 +16,22 @@
   "author": "Mauro Erta <mauro@vlkstudio.com> (https://mauroerta.me)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VLK-STUDIO/vlk-cli"
+    "url": "git+https://github.com/mauroerta/laravel-me"
   },
   "bugs": {
-    "url": "https://github.com/VLK-STUDIO/vlk-cli/issues"
+    "url": "https://github.com/mauroerta/laravel-me/issues"
   },
-  "homepage": "https://github.com/VLK-STUDIO/vlk-cli#readme",
+  "homepage": "https://github.com/mauroerta/laravel-me#readme",
   "license": "MIT",
   "keywords": [
     "laravel",
     "vlk",
-    "studio"
+    "studio",
+    "crud",
+    "ajax",
+    "request",
+    "orm",
+    "eloquent"
   ],
   "scripts": {
     "describe": "npm-scripts-info",
