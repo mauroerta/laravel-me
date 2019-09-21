@@ -1,0 +1,298 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>laravel-me</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">laravel-me</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> laravel-me</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#laravel-me" id="laravel-me" style="color: inherit; text-decoration: none;">
+					<h1>Laravel-Me</h1>
+				</a>
+				<a href="#img-srchttpswwwvlkstudiocomimagesvlklogopng-altvlk-logo-stylezoom25-❤️--img-srchttpslaravelcomimglogomarkminsvg-altlaravel-logo-img-srchttpslaravelcomimglogotypeminsvg-altlaravel-text" id="img-srchttpswwwvlkstudiocomimagesvlklogopng-altvlk-logo-stylezoom25-❤️--img-srchttpslaravelcomimglogomarkminsvg-altlaravel-logo-img-srchttpslaravelcomimglogotypeminsvg-altlaravel-text" style="color: inherit; text-decoration: none;">
+					<h2><img src="https://www.vlkstudio.com/images/vlkLogo.png" alt="VLK logo" style="zoom:25%;" />❤️  <img src="https://laravel.com/img/logomark.min.svg" alt="Laravel Logo"> <img src="https://laravel.com/img/logotype.min.svg" alt="Laravel text"></h2>
+				</a>
+				<p>A Javascript (<code>Typescript</code>) package for make requests to laravel as simple as possible!</p>
+				<a href="#⚙️-installation" id="⚙️-installation" style="color: inherit; text-decoration: none;">
+					<h2>⚙️ Installation</h2>
+				</a>
+				<p>Install the package by running </p>
+				<pre><code class="language-bash">npm install laravel-me</code></pre>
+				<p>Use it by importing the package wherever your want:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> Model <span class="hljs-keyword">from</span> <span class="hljs-string">'laravel-me'</span>;</code></pre>
+				<a href="#🎓-how-it-works" id="🎓-how-it-works" style="color: inherit; text-decoration: none;">
+					<h2>🎓 How it works</h2>
+				</a>
+				<p>Our advise it&#39;s to create a new class that extends the <code>Model</code> class, for example we can create a new <code>User</code> class to handle the <a href="https://laravel.com/docs/6.x/eloquent">Laravel User Model</a>.</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> Model <span class="hljs-keyword">from</span> <span class="hljs-string">'laravel-me'</span>;
+<span class="hljs-keyword">import</span> { AxiosResponse } <span class="hljs-keyword">from</span> <span class="hljs-string">'axios'</span>;
+
+<span class="hljs-keyword">class</span> User <span class="hljs-keyword">extends</span> Model {
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">attributes: <span class="hljs-built_in">Object</span> = {}</span>) {
+        <span class="hljs-keyword">super</span>(attributes);
+        <span class="hljs-keyword">this</span>._options.resourceName = <span class="hljs-string">'users'</span>;
+        <span class="hljs-keyword">this</span>._options.routeKeyName = <span class="hljs-string">'id'</span>;
+        <span class="hljs-keyword">this</span>._options.apiBaseUrl = <span class="hljs-string">'/'</span>;
+        <span class="hljs-keyword">this</span>._options.apiUrl = <span class="hljs-string">'/users'</span>;
+
+        <span class="hljs-keyword">this</span>.setOptions();
+    }
+}</code></pre>
+				<p>Now we can make create, read, update, or delete (CRUD) requests:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findUser</span>(<span class="hljs-params">id: <span class="hljs-built_in">string</span>|<span class="hljs-built_in">number</span></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">AxiosResponse</span>&gt; </span>{
+    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">new</span> User();
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> user.get(id);
+};
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createUser</span>(<span class="hljs-params">attributes: <span class="hljs-built_in">Object</span></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">AxiosResponse</span>&gt; </span>{
+    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">new</span> User(attributes);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> user.save(); <span class="hljs-comment">// or return await user.create();</span>
+};
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateUser</span>(<span class="hljs-params">id: <span class="hljs-built_in">string</span>|<span class="hljs-built_in">number</span>, data: <span class="hljs-built_in">Object</span></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">AxiosResponse</span>&gt; </span>{
+    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">new</span> User({
+        id,
+        ...data
+    });
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> user.save(); <span class="hljs-comment">// or return await user.update();</span>
+};
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deleteUser</span>(<span class="hljs-params">id: <span class="hljs-built_in">string</span>|<span class="hljs-built_in">number</span></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">AxiosResponse</span>&gt; </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> <span class="hljs-keyword">new</span> User({ id }).delete();
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> attributes = {
+        name: <span class="hljs-string">'Mauro'</span>,
+        email: <span class="hljs-string">'mauro@email.com'</span>,
+        password: <span class="hljs-string">'K33pTh3S3cr3t'</span>
+    };
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`1 - Create a new user`</span>);
+    <span class="hljs-keyword">const</span> userCreate = <span class="hljs-keyword">await</span> createUser(attributes);
+    <span class="hljs-built_in">console</span>.log(userCreate.data);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`2 - Update the user`</span>);
+    <span class="hljs-keyword">const</span> userUpdate = <span class="hljs-keyword">await</span> updateUser(userCreate.data.id, { name: <span class="hljs-string">'Mauro Erta'</span> });
+    <span class="hljs-built_in">console</span>.log(userUpdate.data);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`3 - Find the user`</span>);
+    <span class="hljs-keyword">const</span> userFind = <span class="hljs-keyword">await</span> findUser(userCreate.data.id);
+    <span class="hljs-built_in">console</span>.log(userFind.data);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`4 - Delete the user`</span>);
+    <span class="hljs-keyword">const</span> userDelete = <span class="hljs-keyword">await</span> deleteUser(userCreate.data.id);
+    <span class="hljs-built_in">console</span>.log(userDelete.data);
+}</code></pre>
+				<p>The log of this script will be something like:</p>
+				<pre><code>1 - Create a new<span class="hljs-built_in"> user </span>
+{
+  created_at: <span class="hljs-string">"2019-09-21 08:59:08"</span>
+  email: <span class="hljs-string">"mauro@vlkstudio.com"</span>
+  id: 9
+  name: <span class="hljs-string">"Mauro"</span>
+  updated_at: <span class="hljs-string">"2019-09-21 08:59:08"</span>
+}
+2 - Update the<span class="hljs-built_in"> user
+</span>{
+    created_at: <span class="hljs-string">"2019-09-21 08:59:08"</span>
+  email: <span class="hljs-string">"mauro@vlkstudio.com"</span>
+  email_verified_at: <span class="hljs-literal">null</span>
+  id: 9
+  name: <span class="hljs-string">"Mauro Erta"</span>
+  updated_at: <span class="hljs-string">"2019-09-21 08:59:08"</span>
+}
+3 - <span class="hljs-builtin-name">Find</span> the<span class="hljs-built_in"> user
+</span>{
+    created_at: <span class="hljs-string">"2019-09-21 08:59:08"</span>
+    email: <span class="hljs-string">"mauro@vlkstudio.com"</span>
+    email_verified_at: <span class="hljs-literal">null</span>
+    id: 9
+    name: <span class="hljs-string">"Mauro Erta"</span>
+    updated_at: <span class="hljs-string">"2019-09-21 08:59:08"</span>
+}
+4 - Delete the<span class="hljs-built_in"> user
+</span>{
+    message: <span class="hljs-string">"User successfully deleted"</span>
+}</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/model.html" class="tsd-kind-icon">Model</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/user.html" class="tsd-kind-icon">User</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/modeldata.html" class="tsd-kind-icon">Model<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/modelfiles.html" class="tsd-kind-icon">Model<wbr>Files</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/modeloptions.html" class="tsd-kind-icon">Model<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#modelrequestmethod" class="tsd-kind-icon">Model<wbr>Request<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#createuser" class="tsd-kind-icon">create<wbr>User</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#csrf" class="tsd-kind-icon">csrf</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#deleteuser" class="tsd-kind-icon">delete<wbr>User</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#finduser" class="tsd-kind-icon">find<wbr>User</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#main" class="tsd-kind-icon">main</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#objecttoformdata" class="tsd-kind-icon">object<wbr>ToForm<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#sanitizeurl" class="tsd-kind-icon">sanitize<wbr>Url</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#updateuser" class="tsd-kind-icon">update<wbr>User</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

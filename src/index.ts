@@ -92,15 +92,6 @@ export default class Model implements ModelData {
     return await this.call(url, data);
   }
 
-  async addImage(image: File, is_picture = false): Promise<AxiosResponse> {
-    const url = this._options.url + '/image';
-    const data = {
-      image: image,
-      is_picture: is_picture
-    };
-    return await this.post(url, data);
-  }
-
   async addFile(file: File, name = 'file', attributes: ModelData = {}): Promise<AxiosResponse> {
     const url = this._options.url;
     const data = attributes || {};
@@ -108,8 +99,8 @@ export default class Model implements ModelData {
     return await this.put(url, data);
   }
 
-  async get(identifier: string): Promise<AxiosResponse> {
-    return await this.call(this._options.apiUrl + '/' + identifier);
+  async get(identifier: string|number): Promise<AxiosResponse> {
+    return await this.call(`${this._options.apiUrl}/${identifier}`);
   }
 
   async post(url: string|null = null, data: ModelData = {}, headers: AxiosRequestConfig['headers'] = {}): Promise<AxiosResponse> {
